@@ -13,14 +13,15 @@ export const QuestionsScreen = () => {
 const QuestionCards = (props) => {
     return(
         <View style={styles.container}>
-            <Text style={{fontSize: 25, marginHorizontal: 30, marginTop:60, marginBottom:20}}>{props.question}</Text>
+            <Text style={{fontSize:50, marginLeft:10}}>Learn!</Text>
+            <Text style={{fontSize: 25, marginHorizontal: 30, marginTop:20, marginBottom:20}}>{props.question}</Text>
             <View style={styles.answerLayout}>
                 <AnswerCard color='red' title={props.answers[0]}/>
-                <AnswerCard color='green' title={props.answers[1]}/>
+                <AnswerCard color='#33C759' title={props.answers[1]}/>
             </View>
             <View style={styles.answerLayout}>
                 <AnswerCard color='red' title={props.answers[2]}/>
-                <AnswerCard color='#33C759' title={props.answers[3]}/>
+                <AnswerCard color='red' title={props.answers[3]}/>
             </View>
         </View>
     )

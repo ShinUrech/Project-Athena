@@ -1,51 +1,60 @@
-import { SafeAreaView ,View, FlatList } from "react-native";
+import { SafeAreaView ,View, FlatList, ImageBackground , Text, TouchableOpacity, ScrollView} from "react-native";
 import React, { useState } from "react";
-import { Chart, VerticalAxis, HorizontalAxis, Line } from 'react-native-responsive-linechart'
-
 
 export const DashboardScreen = () => {
-    const [data, setData] = useState()
     return(
-        <SafeAreaView style={{flex:1}}>
-            <StockChart/>
+        <SafeAreaView>
+          <Text style={{fontSize:50, marginLeft:10}}>Portfolio</Text>
+          <ScrollView style={{marginTop:30}}>
+          <View style={{marginLeft:20, marginBottom:6}}>
+            <Text style={{fontSize: 40}}>302.78 CHF</Text>
+            <View style={{flexDirection:'row'}}>
+              <Text style={{fontSize:20, color:'#33C759'}}>+12,13 CHF {'(4.20%)'}</Text>
+              <Text style={{fontSize:20, color:'#888888', marginLeft: 10}}>Today</Text>
+            </View>
+          </View>
+          <ImageBackground source={require('../assets/portfolio-chart.jpg')}>
+            <View style={{height:180}}/>
+          </ImageBackground>
+          <Text style={{fontSize:25, marginLeft: 30, marginVertical:10}}>Pending Investments</Text>
+          <InvestmentCard company='Apple' price={57.99} percentage={0.12} />
+          <InvestmentCard company='Microsoft' price={43.12} percentage={0.2}/>
+          <InvestmentCard company='Nvidia' price={23.78} percentage={0.15}/>
+          <Text style={{fontSize:35, marginLeft: 30, marginVertical:10}}>Investments</Text>
+          <AssetCard company='Uber' price={27.3} color='red' percentage={0.3} return={4}/>
+          <AssetCard company='Pfizer' price={55.8} color='#33C759' percentage={0.36} return={8}/>
+          <AssetCard company='Allianz' price={72.3} color='#33C759' percentage={0.41} return={3}/>
+          </ScrollView>
         </SafeAreaView>
     )
 }
 
-const StockChart = (props) => {
-    const [data, setData] = useState(props.data)
-
-    return(
-        <View style={{flex:1}}>
-            <Chart
-            style={{ height: 200, width: '100%', backgroundColor: '#eee' }}
-            xDomain={{ min: -2, max: 10 }}
-            yDomain={{ min: -2, max: 20 }}
-            padding={{ left: 20, top: 10, bottom: 10, right: 10 }}
-            >
-            <VerticalAxis tickValues={[]} />
-            <HorizontalAxis tickCount={3} />
-            <Line data={data1} smoothing="none" theme={{ stroke: { color: 'red', width: 1 } }} />
-            <Line data={data2} smoothing="cubic-spline" theme={{ stroke: { color: 'blue', width: 1 } }} />
-        </Chart>
-        </View>
-        
-    )
+const InvestmentCard = (props) => {
+  return(
+          <View style={{marginBottom:10}}>
+              <TouchableOpacity style={{width:'95%', alignSelf:'center', height:70, borderWidth:1, borderRadius:10, padding: 10}}>
+                <Text style={{fontSize:20, paddingBottom:5}}>{props.company}</Text>
+                <View style={{flexDirection:'row'}}>
+                  <Text style={{paddingLeft: 5, backgroundColor:'gray', width:45, marginRight:10}}>x{props.percentage}</Text>
+                  <Text>{props.price} CHF</Text>
+                  <Text style={{color:'gray', paddingLeft: 100}}>Invest {props.price} CHF</Text>
+                </View>
+              </TouchableOpacity>
+          </View>
+  )
 }
-const data1 = [
-    { x: -2, y: 1 },
-    { x: -1, y: 0 },
-    { x: 8, y: 13 },
-    { x: 9, y: 11.5 },
-    { x: 10, y: 12 }
-  ]
-  
-  const data2 = [
-    { x: -2, y: 15 },
-    { x: -1, y: 10 },
-    { x: 0, y: 12 },
-    { x: 1, y: 7 },
-    { x: 8, y: 12 },
-    { x: 9, y: 13.5 },
-    { x: 10, y: 18 }
-  ]
+
+const AssetCard = (props) => {
+  return(
+    <View style={{marginBottom:10}}>
+        <TouchableOpacity style={{width:'95%', alignSelf:'center', height:70, borderWidth:1, borderRadius:10, padding: 10}}>
+          <Text style={{fontSize:20, paddingBottom:5}}>{props.company}</Text>
+          <View style={{flexDirection:'row'}}>
+            <Text style={{paddingLeft: 5, backgroundColor:'gray', width:45, marginRight:10}}>x{props.percentage}</Text>
+            <Text>{props.price} CHF</Text>
+            <Text style={{color:props.color, paddingLeft: 200}}>{props.return}%</Text>
+          </View>
+        </TouchableOpacity>
+    </View>
+)
+}

@@ -5,7 +5,7 @@ import { DashboardScreen } from "../screens/dashboard.js"
 import { FriendsInterationScreen } from "../screens/friendsInteraction.js"
 import { NavigationContainer } from "@react-navigation/native"
 import Ionicons from "@expo/vector-icons/Ionicons"
-import {View} from 'react-native'
+import {View,SafeAreaView, StatusBar} from 'react-native'
 
 export const MainTabs = () => {
     const Tab = createMaterialBottomTabNavigator()
@@ -14,8 +14,10 @@ export const MainTabs = () => {
         <NavigationContainer>
            
             <Tab.Navigator 
-            
+
             screenOptions={({route}) => ({
+               
+                
                 tabBarAccessibilityLabel:false,
                 
                 tabBarLabel:false,

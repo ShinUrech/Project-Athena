@@ -4,8 +4,9 @@ import { friends } from "../assets/users";
 
 export const FriendsInterationScreen = () => {
     return(
-        <SafeAreaView>
-            <FlatList data={friends} renderItem={({item}) => <FriendWidget image={item.image} name={item.name} streak={item.streak}/>}/>
+        <SafeAreaView style={{height:1000}}>
+            <Text style={{fontSize:50, marginLeft:10}}>Friends</Text>
+            <FlatList style={{marginTop:30}} data={friends} renderItem={({item}) => <FriendWidget image={item.image} name={item.name} streak={item.streak}/>}/>
         </SafeAreaView>
     )
 }

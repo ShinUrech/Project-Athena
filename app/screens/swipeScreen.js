@@ -7,10 +7,11 @@ import {users} from "../assets/users";
 export const SwipeScreen = () => {
     
       return (
-        <View style={styles.pageContainer}>
+         <View style={styles.pageContainer}>
+          <Text style={{fontSize:50, marginLeft: -80, marginBottom:30}}>Daily Swipes</Text>
           <AnimatedStack
             data={users}
-            renderItem={({item}) => <Card user={item} />}
+            renderItem={({item}) => <Card user={item}/>}
           />
         </View>
       );
@@ -22,5 +23,6 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       flex: 1,
       width: '100%',
+      marginBottom: 100,
     },
   });

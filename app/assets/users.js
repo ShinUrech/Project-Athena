@@ -47,5 +47,42 @@ export const friends = [
     name:'Marcel Jr',
     image: require('../assets/Koba.png'),
     streak: 91
+  },
+  {
+    id:'3',
+    name:'Arnie',
+    image: require('../assets/Arnie.jpg'),
+    streak: 69
+  },
+  {
+    id:'4',
+    name:'Tobias',
+    image: require('../assets/Tobias.jpg'),
+    streak:69420
+  },
+  {
+    id:'5',
+    name:'Shane',
+    image: require('../assets/Shane.png'),
+    streak: 1337
+  },
+  
+  {
+    id:'6',
+    name:'Curtis',
+    image: require('../assets/50Cents.jpg'),
+    streak: 50
+  },
+  {
+    id:'7',
+    name:'Salim',
+    image: require('../assets/salim.jpg'),
+    streak: 13
+  },
+  {
+    id:'8',
+    name:'Theo',
+    image: require('../assets/Theo.jpg'),
+    streak: 1010
   }
 ]
