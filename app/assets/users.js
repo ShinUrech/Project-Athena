@@ -1,4 +1,4 @@
-const users = [
+export const users = [
     {
       id: '1',
       name: 'Apple',
@@ -35,4 +35,17 @@ const users = [
     },
   ];
 
-export default users;
+export const friends = [
+  {
+    id:'1',
+    name:'Alex',
+    image: require('../assets/Alex.jpg'),
+    streak: 420
+  },
+  {
+    id:'2',
+    name:'Marcel Jr',
+    image: require('../assets/Koba.png'),
+    streak: 91
+  }
+]

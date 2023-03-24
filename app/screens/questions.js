@@ -5,7 +5,7 @@ export const QuestionsScreen = () => {
     return(
         <SafeAreaView>
 
-            <QuestionCards question='Que Tal hijo de puta uuuuuu?'answers={answers}/>
+            <QuestionCards question="How does Apple make it's revenue ?"answers={answers}/>
         </SafeAreaView>
     )
 }
@@ -16,7 +16,7 @@ const QuestionCards = (props) => {
             <Text style={{fontSize: 25, marginHorizontal: 30, marginTop:60, marginBottom:20}}>{props.question}</Text>
             <View style={styles.answerLayout}>
                 <AnswerCard color='red' title={props.answers[0]}/>
-                <AnswerCard color='red' title={props.answers[1]}/>
+                <AnswerCard color='green' title={props.answers[1]}/>
             </View>
             <View style={styles.answerLayout}>
                 <AnswerCard color='red' title={props.answers[2]}/>
@@ -28,7 +28,7 @@ const QuestionCards = (props) => {
 const AnswerCard = (props) => {
     const [pressed, setPressed] = useState(false)
     return(
-        <TouchableOpacity onPress={() => setPressed(true)} >
+        <TouchableOpacity onPress={() => setPressed(!pressed)} >
             <View style={[styles.answerCard, {backgroundColor: pressed ? props.color: '#F5F6FA'}]}> 
                 <Text style={{fontSize:20}}>{props.title}</Text>
             </View>
@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
 }) 
 
 const answers = [
-    'oui',
-    'surement',
-    'peut être',
-    'non'
+    'Buying semi-conductor chips',
+    'Selling iPhones, iPads...',
+    "Apple's ad business",
+    "Through Apple's car project"
 ]
